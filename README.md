@@ -1,23 +1,6 @@
-#Run a Node container
-docker run -it -v $(pwd):/app node:16 bash
-
-#Install angular
-npm install @angular/cli
-
-#Create an angular workspace
-ng new angular-workspace --create-application false
-
-#Create an angular app
-cd angular-workspace
-ng generate application design-system
-
-#Create an angular library
-ng generate library component-lib
-
-
 # AngularWorkspace
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
 ## Development server
 
