@@ -5,7 +5,7 @@
     "baseUrl": "./",
     "paths": {
       "component-lib": [
-        "dist/component-lib"
+        "projects/component-lib/src/lib"
       ]
     },
     "outDir": "./dist/out-tsc",
