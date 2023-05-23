@@ -5,17 +5,17 @@ version: "3.7"
 #
 # to run commands in a running container
 # docker exec -it <container_id> sh
-# or 
+# or
 # docker-compose exec app sh
 
 services:
   app:
     #stdin_open: true # docker run -i
     #tty: true        # docker run -t
-    image: node:alpine
-    command: sh -c "npm install -g @angular/cli && npm install && ng serve --host 0.0.0.0"
+    image: node:lts
+    command: sh -c "npm install && npm start"
     ports:
-       - 4200:4200
+      - 4200:4200
     working_dir: /app
     volumes:
       - ./:/app
