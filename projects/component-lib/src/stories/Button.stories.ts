@@ -49,3 +49,9 @@ export const Small: Story = {
     label: 'Button',
   },
 };
+
+export const Submit: Story = {
+  args: {
+    label: 'Submit',
+  },
+};
