@@ -19,3 +19,12 @@ services:
     working_dir: /app
     volumes:
       - ./:/app
+
+  storybook:
+    image: node:lts
+    command: sh -c "npm install && npm run storybook"
+    ports:
+      - 6006:6006
+    working_dir: /app
+    volumes:
+      - ./:/app
