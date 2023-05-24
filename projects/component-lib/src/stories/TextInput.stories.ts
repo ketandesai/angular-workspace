@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import {TextInputComponent} from '../lib/text-input/text-input.component';
+import { TextInputComponent } from '../lib/components/text-input/text-input.component';
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<TextInputComponent> = {
@@ -12,9 +12,7 @@ const meta: Meta<TextInputComponent> = {
       ...args,
     },
   }),
-  argTypes: {
-    
-  },
+  argTypes: {},
 };
 
 export default meta;

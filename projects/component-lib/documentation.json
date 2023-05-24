@@ -366,18 +366,70 @@
                 }
             ],
             "stylesData": ""
+        },
+        {
+            "name": "TextInputComponent",
+            "id": "component-TextInputComponent-4ab2dd0e97b88749b8f77a9479d351f67ca4e36122d67567ca4ff0dc375a6baf503db90502f9919fc9fed4ab0ce2f3b016c194ca65cd9b0e172b09dada06b99f",
+            "file": "projects/component-lib/src/lib/text-input/text-input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-text-input",
+            "styleUrls": [
+                "./text-input.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./text-input.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'lib-text-input',\n  templateUrl: './text-input.component.html',\n  styleUrls: ['./text-input.component.css']\n})\nexport class TextInputComponent {\n  @Input() label!: string;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./text-input.component.css"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<p>text-input works!</p>\n"
         }
     ],
     "modules": [
         {
             "name": "ComponentLibModule",
-            "id": "module-ComponentLibModule-83cc61f7c9267ce1d1b5ca99785fcdaa630987ae4a3201f74356ecaffee6b6b69c070eec3c4ec3118e3123f6fdeefcd51f1a269578aaaa5aade8660cf8dee0ce",
+            "id": "module-ComponentLibModule-5c5d975de4054a1781b1a5585b619cf60165acf933665eb0ae25a29b3190155936fae940dea29585969112c73029431be25bbc11b5a180a5e3a9b5a1e991dc5e",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/component-lib/src/lib/component-lib.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ComponentLibComponent } from './component-lib.component';\n\n\n\n@NgModule({\n  declarations: [\n    ComponentLibComponent\n  ],\n  imports: [\n  ],\n  exports: [\n    ComponentLibComponent\n  ]\n})\nexport class ComponentLibModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ComponentLibComponent } from './component-lib.component';\nimport { TextInputComponent } from './text-input/text-input.component';\n\n\n\n@NgModule({\n  declarations: [\n    ComponentLibComponent,\n    TextInputComponent\n  ],\n  imports: [\n  ],\n  exports: [\n    ComponentLibComponent\n  ]\n})\nexport class ComponentLibModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -388,6 +440,9 @@
                     "elements": [
                         {
                             "name": "ComponentLibComponent"
+                        },
+                        {
+                            "name": "TextInputComponent"
                         }
                     ]
                 },
@@ -497,6 +552,16 @@
                 "defaultValue": "{\n  title: 'Example/Page',\n  component: Page,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/angular/configure/story-layout\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      declarations: [Button, Header],\n      imports: [CommonModule],\n    }),\n  ],\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/component-lib/src/stories/TextInput.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TextInputComponent>",
+                "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {\n    \n  },\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -517,6 +582,16 @@
                 "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
             },
             {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/component-lib/src/stories/TextInput.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n  },\n}"
+            },
+            {
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -535,6 +610,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Submit",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/component-lib/src/stories/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Submit',\n  },\n}"
             }
         ],
         "functions": [],
@@ -567,6 +652,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<Page>",
                 "file": "projects/component-lib/src/stories/Page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TextInputComponent>",
+                "file": "projects/component-lib/src/stories/TextInput.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -625,6 +721,16 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                },
+                {
+                    "name": "Submit",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/component-lib/src/stories/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Submit',\n  },\n}"
                 }
             ],
             "projects/component-lib/src/stories/Header.stories.ts": [
@@ -691,6 +797,28 @@
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: Page,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/angular/configure/story-layout\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      declarations: [Button, Header],\n      imports: [CommonModule],\n    }),\n  ],\n}"
                 }
             ],
+            "projects/component-lib/src/stories/TextInput.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/component-lib/src/stories/TextInput.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TextInputComponent>",
+                    "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {\n    \n  },\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/component-lib/src/stories/TextInput.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n  },\n}"
+                }
+            ],
             "projects/component-lib/.storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -745,12 +873,25 @@
                     "description": "",
                     "kind": 180
                 }
+            ],
+            "projects/component-lib/src/stories/TextInput.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TextInputComponent>",
+                    "file": "projects/component-lib/src/stories/TextInput.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
             ]
         }
     },
     "routes": [],
     "coverage": {
-        "count": 4,
+        "count": 3,
         "status": "low",
         "files": [
             {
@@ -777,6 +918,15 @@
                 "type": "injectable",
                 "linktype": "injectable",
                 "name": "ComponentLibService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/component-lib/src/lib/text-input/text-input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TextInputComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
                 "status": "low"
@@ -832,6 +982,16 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/component-lib/src/stories/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Submit",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/component-lib/src/stories/Header.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -887,6 +1047,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/component-lib/src/stories/TextInput.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/component-lib/src/stories/TextInput.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
