@@ -1,5 +1,50 @@
 {
-    "pipes": [],
+    "pipes": [
+        {
+            "name": "ErrorKeysPipe",
+            "id": "pipe-ErrorKeysPipe-57bc0f6b7388f3041ad4e102595f24aad9b40f9e76dd09c977b42476361273c31b3578ebe3d2796299a59940dc383eb42f341c5b429720e0fd6307db93b6aef9",
+            "file": "projects/component-lib/src/lib/pipes/error-keys.pipe.ts",
+            "type": "pipe",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "transform",
+                    "args": [
+                        {
+                            "name": "errors",
+                            "type": "ValidationErrors",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string[]",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "errors",
+                            "type": "ValidationErrors",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "standalone": false,
+            "ngname": "errorKeys",
+            "sourceCode": "import { Pipe, PipeTransform } from '@angular/core';\nimport { ValidationErrors } from '@angular/forms';\n\nexport const validationMessages: ValidationErrors = {\n  required: 'Required',\n  minlength: 'Too Short',\n  maxlength: 'Too Long',\n  pattern: 'Forbidden Entry',\n  email: 'Invalid Entry',\n  date: 'Invalid Date',\n};\n\n@Pipe({\n  name: 'errorKeys',\n})\nexport class ErrorKeysPipe implements PipeTransform {\n  transform(errors: ValidationErrors): string[] {\n    if (!errors) {\n      return [];\n    }\n    return Object.keys(errors);\n  }\n}\n"
+        }
+    ],
     "interfaces": [
         {
             "name": "User",
@@ -18,7 +63,7 @@
         {
             "name": "ComponentLibService",
             "id": "injectable-ComponentLibService-f81b65189cfd29185cb0dec5bb3ced182fb8186fa7ac5108bc6bf8871b0790d1f7bdf4d296d43413765bb9ea68a8ca1d861b1543d551b177232748b440142e4a",
-            "file": "projects/component-lib/src/lib/component-lib.service.ts",
+            "file": "projects/component-lib/src/lib/services/component-lib.service.ts",
             "properties": [],
             "methods": [],
             "deprecated": false,
@@ -173,40 +218,6 @@
                     }
                 }
             }
-        },
-        {
-            "name": "ComponentLibComponent",
-            "id": "component-ComponentLibComponent-89ccd872f4f3829e8a5d89a58018f8b19533fdc401444ffbc16da898ad4503a923cef69690e48cce9a3d3401bd7f1d57cc7b9c9faba38e2baaf26b9038fdfa2f",
-            "file": "projects/component-lib/src/lib/component-lib.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "lib-component-lib",
-            "styleUrls": [],
-            "styles": [],
-            "template": "<p>\n  component-lib works!\n</p>\n",
-            "templateUrl": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": false,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-component-lib',\n  template: `\n    <p>\n      component-lib works!\n    </p>\n  `,\n  styles: [\n  ]\n})\nexport class ComponentLibComponent {\n\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": ""
         },
         {
             "name": "HeaderComponent",
@@ -369,8 +380,8 @@
         },
         {
             "name": "TextInputComponent",
-            "id": "component-TextInputComponent-4ab2dd0e97b88749b8f77a9479d351f67ca4e36122d67567ca4ff0dc375a6baf503db90502f9919fc9fed4ab0ce2f3b016c194ca65cd9b0e172b09dada06b99f",
-            "file": "projects/component-lib/src/lib/text-input/text-input.component.ts",
+            "id": "component-TextInputComponent-b8f6434410ec5560ddde50b33f98acab1e482084da93343eaa70558ac3785441386f7b883dad0ba5fb281052ba7ff09f39be1d87d1bf0f4e891e4c63bd4d8b4f",
+            "file": "projects/component-lib/src/lib/components/text-input/text-input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -388,10 +399,35 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "name": "control",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "FormControl",
+                    "decorators": []
+                },
+                {
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 9,
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "messages",
+                    "defaultValue": "validationMessages",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
                     "type": "string",
                     "decorators": []
                 }
@@ -408,7 +444,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'lib-text-input',\n  templateUrl: './text-input.component.html',\n  styleUrls: ['./text-input.component.css']\n})\nexport class TextInputComponent {\n  @Input() label!: string;\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { validationMessages } from '../../pipes/error-keys.pipe';\n\n@Component({\n  selector: 'lib-text-input',\n  templateUrl: './text-input.component.html',\n  styleUrls: ['./text-input.component.css'],\n})\nexport class TextInputComponent {\n  @Input() label!: string;\n  @Input() control!: FormControl;\n  @Input() placeholder?: string;\n  @Input() messages? = validationMessages;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -417,19 +453,19 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<p>text-input works!</p>\n"
+            "templateData": "<mat-form-field *ngIf=\"control\">\n  <mat-label>{{ label }}</mat-label>\n  <input type=\"text\" matInput [formControl]=\"control\" />\n  <mat-error *ngFor=\"let error of control.errors | errorKeys\">\n    {{ messages[error] }}\n  </mat-error>\n</mat-form-field>\n"
         }
     ],
     "modules": [
         {
             "name": "ComponentLibModule",
-            "id": "module-ComponentLibModule-5c5d975de4054a1781b1a5585b619cf60165acf933665eb0ae25a29b3190155936fae940dea29585969112c73029431be25bbc11b5a180a5e3a9b5a1e991dc5e",
+            "id": "module-ComponentLibModule-e26421c89715c944a3d54300193a6325e8a7301e8e9108104a407117595de2859fd51d5ab109e9ae5f2ceaea8e28c24460ae04be2148c394851e13fef766b438",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/component-lib/src/lib/component-lib.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ComponentLibComponent } from './component-lib.component';\nimport { TextInputComponent } from './text-input/text-input.component';\n\n\n\n@NgModule({\n  declarations: [\n    ComponentLibComponent,\n    TextInputComponent\n  ],\n  imports: [\n  ],\n  exports: [\n    ComponentLibComponent\n  ]\n})\nexport class ComponentLibModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { TextInputComponent } from './components';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { ReactiveFormsModule } from '@angular/forms';\nimport { ErrorKeysPipe } from './pipes/error-keys.pipe';\n\n@NgModule({\n  declarations: [TextInputComponent, ErrorKeysPipe],\n  imports: [MatFormFieldModule, ReactiveFormsModule],\n  exports: [TextInputComponent],\n})\nexport class ComponentLibModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -439,7 +475,7 @@
                     "type": "declarations",
                     "elements": [
                         {
-                            "name": "ComponentLibComponent"
+                            "name": "ErrorKeysPipe"
                         },
                         {
                             "name": "TextInputComponent"
@@ -454,7 +490,7 @@
                     "type": "exports",
                     "elements": [
                         {
-                            "name": "ComponentLibComponent"
+                            "name": "TextInputComponent"
                         }
                     ]
                 },
@@ -559,7 +595,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TextInputComponent>",
-                "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {\n    \n  },\n}"
+                "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {},\n}"
             },
             {
                 "name": "preview",
@@ -620,6 +656,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: 'Submit',\n  },\n}"
+            },
+            {
+                "name": "validationMessages",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/component-lib/src/lib/pipes/error-keys.pipe.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ValidationErrors",
+                "defaultValue": "{\n  required: 'Required',\n  minlength: 'Too Short',\n  maxlength: 'Too Long',\n  pattern: 'Forbidden Entry',\n  email: 'Invalid Entry',\n  date: 'Invalid Date',\n}"
             }
         ],
         "functions": [],
@@ -806,7 +852,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TextInputComponent>",
-                    "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {\n    \n  },\n}"
+                    "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {},\n}"
                 },
                 {
                     "name": "Primary",
@@ -829,6 +875,18 @@
                     "deprecationMessage": "",
                     "type": "Preview",
                     "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
+                }
+            ],
+            "projects/component-lib/src/lib/pipes/error-keys.pipe.ts": [
+                {
+                    "name": "validationMessages",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/component-lib/src/lib/pipes/error-keys.pipe.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ValidationErrors",
+                    "defaultValue": "{\n  required: 'Required',\n  minlength: 'Too Short',\n  maxlength: 'Too Long',\n  pattern: 'Forbidden Entry',\n  email: 'Invalid Entry',\n  date: 'Invalid Date',\n}"
                 }
             ]
         },
@@ -905,28 +963,38 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/component-lib/src/lib/component-lib.component.ts",
+                "filePath": "projects/component-lib/src/lib/components/text-input/text-input.component.ts",
                 "type": "component",
                 "linktype": "component",
-                "name": "ComponentLibComponent",
+                "name": "TextInputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/component-lib/src/lib/pipes/error-keys.pipe.ts",
+                "type": "pipe",
+                "linktype": "pipe",
+                "name": "ErrorKeysPipe",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/component-lib/src/lib/component-lib.service.ts",
-                "type": "injectable",
-                "linktype": "injectable",
-                "name": "ComponentLibService",
+                "filePath": "projects/component-lib/src/lib/pipes/error-keys.pipe.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "validationMessages",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/component-lib/src/lib/text-input/text-input.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "TextInputComponent",
+                "filePath": "projects/component-lib/src/lib/services/component-lib.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ComponentLibService",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
                 "status": "low"

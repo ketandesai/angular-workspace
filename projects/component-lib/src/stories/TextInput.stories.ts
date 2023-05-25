@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { TextInputComponent } from '../lib/components/text-input/text-input.component';
+import { FormControl } from '@angular/forms';
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<TextInputComponent> = {
@@ -22,5 +23,8 @@ type Story = StoryObj<TextInputComponent>;
 export const Primary: Story = {
   args: {
     label: 'Some Test Label',
+    control: new FormControl('value'),
+    placeholder: "Placeholder Text",
+
   },
 };

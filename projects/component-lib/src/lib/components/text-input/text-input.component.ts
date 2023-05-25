@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { validationMessages } from '../../pipes/error-keys.pipe';
-
 @Component({
   selector: 'lib-text-input',
   templateUrl: './text-input.component.html',
@@ -11,5 +10,5 @@ export class TextInputComponent {
   @Input() label!: string;
   @Input() control!: FormControl;
   @Input() placeholder?: string;
-  @Input() messages? = validationMessages;
+  @Input() validationMessages? = validationMessages;
 }
