@@ -380,7 +380,7 @@
         },
         {
             "name": "TextInputComponent",
-            "id": "component-TextInputComponent-b8f6434410ec5560ddde50b33f98acab1e482084da93343eaa70558ac3785441386f7b883dad0ba5fb281052ba7ff09f39be1d87d1bf0f4e891e4c63bd4d8b4f",
+            "id": "component-TextInputComponent-321121155c8855794449e996a20eed4ed7dcfac68a8e6d1963ab1560daaf7be48c7ca00999d505ce530382c1a52e79e35ce809f42be6a2d46294b606e3faa254",
             "file": "projects/component-lib/src/lib/components/text-input/text-input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -402,7 +402,7 @@
                     "name": "control",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 11,
                     "type": "FormControl",
                     "decorators": []
                 },
@@ -410,25 +410,25 @@
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 10,
                     "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "messages",
-                    "defaultValue": "validationMessages",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 14,
-                    "type": "any",
                     "decorators": []
                 },
                 {
                     "name": "placeholder",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 12,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "validationMessages",
+                    "defaultValue": "validationMessages",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "any",
                     "decorators": []
                 }
             ],
@@ -444,7 +444,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { validationMessages } from '../../pipes/error-keys.pipe';\n\n@Component({\n  selector: 'lib-text-input',\n  templateUrl: './text-input.component.html',\n  styleUrls: ['./text-input.component.css'],\n})\nexport class TextInputComponent {\n  @Input() label!: string;\n  @Input() control!: FormControl;\n  @Input() placeholder?: string;\n  @Input() messages? = validationMessages;\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormControl } from '@angular/forms';\nimport { validationMessages } from '../../pipes/error-keys.pipe';\n@Component({\n  selector: 'lib-text-input',\n  templateUrl: './text-input.component.html',\n  styleUrls: ['./text-input.component.css'],\n})\nexport class TextInputComponent {\n  @Input() label!: string;\n  @Input() control!: FormControl;\n  @Input() placeholder?: string;\n  @Input() validationMessages? = validationMessages;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -453,19 +453,19 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<mat-form-field *ngIf=\"control\">\n  <mat-label>{{ label }}</mat-label>\n  <input type=\"text\" matInput [formControl]=\"control\" />\n  <mat-error *ngFor=\"let error of control.errors | errorKeys\">\n    {{ messages[error] }}\n  </mat-error>\n</mat-form-field>\n"
+            "templateData": "<mat-form-field>\n  <mat-label>{{ label }}</mat-label>\n  <input type=\"text\" matInput [formControl]=\"control\" />\n  <mat-error *ngFor=\"let error of control.errors | errorKeys\">\n    {{ validationMessages[error] }}\n  </mat-error>\n</mat-form-field>\n"
         }
     ],
     "modules": [
         {
             "name": "ComponentLibModule",
-            "id": "module-ComponentLibModule-e26421c89715c944a3d54300193a6325e8a7301e8e9108104a407117595de2859fd51d5ab109e9ae5f2ceaea8e28c24460ae04be2148c394851e13fef766b438",
+            "id": "module-ComponentLibModule-8bee662e7e66cd245e17c8a3933c851071bd23532be5efc81b3597561e237ebbbf5ad68db3ce8c81f61979810dad74671809ce32eeda43061d4895229697ece5",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/component-lib/src/lib/component-lib.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { TextInputComponent } from './components';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { ReactiveFormsModule } from '@angular/forms';\nimport { ErrorKeysPipe } from './pipes/error-keys.pipe';\n\n@NgModule({\n  declarations: [TextInputComponent, ErrorKeysPipe],\n  imports: [MatFormFieldModule, ReactiveFormsModule],\n  exports: [TextInputComponent],\n})\nexport class ComponentLibModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { TextInputComponent } from './components';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { ReactiveFormsModule } from '@angular/forms';\nimport { ErrorKeysPipe } from './pipes/error-keys.pipe';\n\n@NgModule({\n  declarations: [TextInputComponent, ErrorKeysPipe],\n  imports: [MatFormFieldModule, ReactiveFormsModule],\n  exports: [TextInputComponent, ErrorKeysPipe],\n})\nexport class ComponentLibModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -489,6 +489,9 @@
                 {
                     "type": "exports",
                     "elements": [
+                        {
+                            "name": "ErrorKeysPipe"
+                        },
                         {
                             "name": "TextInputComponent"
                         }
@@ -625,7 +628,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n    control: new FormControl('value'),\n    placeholder: \"Placeholder Text\",\n\n  },\n}"
             },
             {
                 "name": "Secondary",
@@ -862,7 +865,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n    control: new FormControl('value'),\n    placeholder: \"Placeholder Text\",\n\n  },\n}"
                 }
             ],
             "projects/component-lib/.storybook/preview.ts": [
