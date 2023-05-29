@@ -1,10 +1,30 @@
 import { Component, Input } from '@angular/core';
-import { FormControl, ValidationErrors } from '@angular/forms';
+import {
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule,
+  ValidationErrors,
+} from '@angular/forms';
 import { validationMessages } from '../../pipes/error-keys.pipe';
 import { ErrorKeysPipe } from '../../pipes/error-keys.pipe';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { CommonModule, NgFor } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
+  standalone: true,
   selector: 'lib-text-input',
+  imports: [
+    ErrorKeysPipe,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule,
+    NgFor,
+    BrowserAnimationsModule
+  ],
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.css'],
 })
@@ -12,5 +32,5 @@ export class TextInputComponent {
   @Input() label!: string;
   @Input() control!: FormControl<string | null>;
   @Input() placeholder?: string;
-  @Input() validationMessages: ValidationErrors = validationMessages;
+  @Input() messages: ValidationErrors = validationMessages;
 }

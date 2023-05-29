@@ -12,6 +12,7 @@ export const validationMessages: ValidationErrors = {
 
 @Pipe({
   name: 'errorKeys',
+  standalone: true,
 })
 export class ErrorKeysPipe implements PipeTransform {
   transform(errors: ValidationErrors): string[] {

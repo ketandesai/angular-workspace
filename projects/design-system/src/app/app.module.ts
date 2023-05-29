@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
+import { TextInputComponent } from 'projects/component-lib/src/lib/components';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     CommonModule,
     MatInputModule,
+    TextInputComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
