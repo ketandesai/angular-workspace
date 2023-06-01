@@ -9,7 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
 import { TextInputComponent } from 'projects/component-lib/src/lib/components';
-
+import {BrowserAnimationsModule} from  '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent
@@ -23,7 +23,8 @@ import { TextInputComponent } from 'projects/component-lib/src/lib/components';
     MatFormFieldModule,
     CommonModule,
     MatInputModule,
-    TextInputComponent
+    TextInputComponent,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

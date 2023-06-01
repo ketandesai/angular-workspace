@@ -10,7 +10,6 @@ import { ErrorKeysPipe } from '../../pipes/error-keys.pipe';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule, NgFor } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   standalone: true,
@@ -22,8 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     CommonModule,
     FormsModule,
-    NgFor,
-    BrowserAnimationsModule
+    NgFor
   ],
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.css'],
