@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
+  standalone: true,
   selector: 'storybook-button',
   imports: [CommonModule],
   template: ` <button

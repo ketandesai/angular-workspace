@@ -89,7 +89,7 @@
     "components": [
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-a53fd738b978780d39fb5fcc9ae4cfe0088e57a1f6ce674862d57dab9192140bd1c05548a9910db0469a431142886e658ff2e761f15781b2ad430e58d64724d0",
+            "id": "component-ButtonComponent-68a7bfac2243006e267223651296fd8b523f5aa53ffc84b8b651fb4bdaf69380bdd9419df7f4fd81c57e5ad5226c2f4f1126ca4acdce4ffa27de8047c849dbe9",
             "file": "projects/component-lib/src/stories/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -112,7 +112,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nWhat background color to use\n",
                     "description": "<p>What background color to use</p>\n",
-                    "line": 28,
+                    "line": 29,
                     "type": "string",
                     "decorators": []
                 },
@@ -123,15 +123,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 786,
-                            "end": 799,
+                            "pos": 806,
+                            "end": 819,
                             "flags": 8421376,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 330,
                             "tagName": {
-                                "pos": 787,
-                                "end": 795,
+                                "pos": 807,
+                                "end": 815,
                                 "flags": 8421376,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -143,7 +143,7 @@
                     ],
                     "rawdescription": "\n\nButton contents\n\n",
                     "description": "<p>Button contents</p>\n",
-                    "line": 42,
+                    "line": 43,
                     "type": "string",
                     "decorators": []
                 },
@@ -154,7 +154,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nIs this the principal call to action on the page?\n",
                     "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 22,
+                    "line": 23,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -165,7 +165,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nHow large should the button be?\n",
                     "description": "<p>How large should the button be?</p>\n",
-                    "line": 34,
+                    "line": 35,
                     "type": "\"small\" | \"medium\" | \"large\"",
                     "decorators": []
                 }
@@ -178,7 +178,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nOptional click handler\n",
                     "description": "<p>Optional click handler</p>\n",
-                    "line": 48,
+                    "line": 49,
                     "type": "EventEmitter"
                 }
             ],
@@ -188,7 +188,7 @@
             "deprecationMessage": "",
             "hostBindings": [],
             "hostListeners": [],
-            "standalone": false,
+            "standalone": true,
             "imports": [
                 {
                     "name": "CommonModule",
@@ -198,7 +198,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  imports: [CommonModule],\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  standalone: true,\n  selector: 'storybook-button',\n  imports: [CommonModule],\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -214,7 +214,7 @@
                         "name": "classes",
                         "type": "[]",
                         "returnType": "string[]",
-                        "line": 50
+                        "line": 51
                     }
                 }
             }
@@ -380,7 +380,7 @@
         },
         {
             "name": "TextInputComponent",
-            "id": "component-TextInputComponent-bf46ccedfb8c92988115e053da004db7c97386bf1a0715842c316bec7c958b83bf6cac9bd22773d4bcbda68cae70c5a3e908fb4443f74788bcfa8325f0e81010",
+            "id": "component-TextInputComponent-3f1d1a49ccdb21028e2683e178a9bf930fcde35dc82ab648b563cc0cec4dc2dea96fc9bb6749d48b11efb870deccdd239fa91a56946f00a6c56cde7b87aedf60",
             "file": "projects/component-lib/src/lib/components/text-input/text-input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -402,7 +402,7 @@
                     "name": "control",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 32,
+                    "line": 31,
                     "type": "FormControl<string | null>",
                     "decorators": []
                 },
@@ -410,7 +410,7 @@
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 30,
                     "type": "string",
                     "decorators": []
                 },
@@ -419,7 +419,7 @@
                     "defaultValue": "validationMessages",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 34,
+                    "line": 33,
                     "type": "ValidationErrors",
                     "decorators": []
                 },
@@ -427,7 +427,7 @@
                     "name": "placeholder",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 33,
+                    "line": 32,
                     "type": "string",
                     "decorators": []
                 }
@@ -472,7 +472,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport {\n  FormControl,\n  FormsModule,\n  ReactiveFormsModule,\n  ValidationErrors,\n} from '@angular/forms';\nimport { validationMessages } from '../../pipes/error-keys.pipe';\nimport { ErrorKeysPipe } from '../../pipes/error-keys.pipe';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { CommonModule, NgFor } from '@angular/common';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n\n@Component({\n  standalone: true,\n  selector: 'lib-text-input',\n  imports: [\n    ErrorKeysPipe,\n    MatFormFieldModule,\n    MatInputModule,\n    ReactiveFormsModule,\n    CommonModule,\n    FormsModule,\n    NgFor\n  ],\n  templateUrl: './text-input.component.html',\n  styleUrls: ['./text-input.component.css'],\n})\nexport class TextInputComponent {\n  @Input() label!: string;\n  @Input() control!: FormControl<string | null>;\n  @Input() placeholder?: string;\n  @Input() messages: ValidationErrors = validationMessages;\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport {\n  FormControl,\n  FormsModule,\n  ReactiveFormsModule,\n  ValidationErrors,\n} from '@angular/forms';\nimport { validationMessages } from '../../pipes/error-keys.pipe';\nimport { ErrorKeysPipe } from '../../pipes/error-keys.pipe';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { CommonModule, NgFor } from '@angular/common';\n\n@Component({\n  standalone: true,\n  selector: 'lib-text-input',\n  imports: [\n    ErrorKeysPipe,\n    MatFormFieldModule,\n    MatInputModule,\n    ReactiveFormsModule,\n    CommonModule,\n    FormsModule,\n    NgFor\n  ],\n  templateUrl: './text-input.component.html',\n  styleUrls: ['./text-input.component.css'],\n})\nexport class TextInputComponent {\n  @Input() label!: string;\n  @Input() control!: FormControl<string | null>;\n  @Input() placeholder?: string;\n  @Input() messages: ValidationErrors = validationMessages;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -481,7 +481,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<mat-form-field>\n  <mat-label>{{ label }}</mat-label>\n  <input type=\"text\" matInput [formControl]=\"control\" />\n  <mat-error *ngFor=\"let error of control?.errors! | errorKeys\">\n    {{ messages[error] }}\n  </mat-error>\n</mat-form-field>\n"
+            "templateData": "<mat-form-field>\n  <mat-label>{{ label }}</mat-label>\n  <input type=\"text\" matInput [formControl]=\"control\" [placeholder]=\"placeholder!\"/>\n  <mat-error *ngFor=\"let error of control?.errors! | errorKeys\">\n    {{ messages[error] }}\n  </mat-error>\n</mat-form-field>\n"
         }
     ],
     "modules": [
