@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { TextInputComponent } from '../lib/components/text-input/text-input.component';
 import { FormControl } from '@angular/forms';
-
+import { MatInputModule } from '@angular/material/input';
+import { moduleMetadata, applicationConfig} from '@storybook/angular';
+import {BrowserAnimationsModule} from  '@angular/platform-browser/animations';
+import { provideAnimations } from '@angular/platform-browser/animations';
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<TextInputComponent> = {
   title: 'Example/TextInputComponent',
@@ -14,6 +17,15 @@ const meta: Meta<TextInputComponent> = {
     },
   }),
   argTypes: {},
+  decorators: [
+    applicationConfig({
+      providers: [provideAnimations()],
+    }),
+    moduleMetadata({
+      declarations: [],
+      imports: [],
+    }),
+  ]
 };
 
 export default meta;
@@ -28,3 +40,6 @@ export const Primary: Story = {
 
   },
 };
+
+
+
