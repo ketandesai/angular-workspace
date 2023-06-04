@@ -131,6 +131,9 @@
             "configDir": "projects/component-lib/.storybook",
             "browserTarget": "component-lib:build",
             "compodoc": true,
+            "styles": [
+              "node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css"
+            ],
             "compodocArgs": [
               "-e",
               "json",
