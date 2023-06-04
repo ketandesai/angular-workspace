@@ -525,6 +525,16 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "fc",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/component-lib/src/stories/TextInput.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() =>\n  new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(10)])"
+            },
+            {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -575,16 +585,6 @@
                 "defaultValue": "{\n  render: (args: Page) => ({\n    props: args,\n  }),\n}"
             },
             {
-                "name": "mapping",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/component-lib/src/stories/TextInput.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  formControl: () =>\n    new FormControl({ value: 'Marty McFly', disabled: false }, [\n      Validators.required,\n    ])\n}"
-            },
-            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -622,7 +622,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TextInputComponent>",
-                "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n      //control: formControl\n      control: mapping['formControl']?.(),\n    },\n  }),\n  /*render: ({ control }: { control: any }) => {\n    //const controlKey = control as keyof typeof mapping;\n    return {\n      props: {\n        control: mapping['formControl']?.(),\n      },\n    };\n  },*/\n  argTypes: {\n    control: {\n      control:{\n        type: 'text',\n      }\n    }\n  },\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimations()],\n    }),\n    moduleMetadata({\n      declarations: [],\n      imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule],\n    }),\n  ]\n}"
+                "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: 'green',\n      ...args,\n      control: fc?.(),\n    },\n  }),\n  argTypes: {},\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimations()],\n    }),\n    moduleMetadata({\n      declarations: [],\n      imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule],\n    }),\n  ],\n}"
             },
             {
                 "name": "preview",
@@ -652,7 +652,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n    //control: formGroup.get('formControl') as unknown as FormControl,\n    placeholder: \"Placeholder Text\",\n\n  },\n}"
+                "defaultValue": "{\n  args: {\n    label: 'Label',\n    placeholder: 'Placeholder Text',\n  },\n}"
             },
             {
                 "name": "Secondary",
@@ -744,6 +744,38 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/component-lib/src/stories/TextInput.stories.ts": [
+                {
+                    "name": "fc",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/component-lib/src/stories/TextInput.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() =>\n  new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(10)])"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/component-lib/src/stories/TextInput.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TextInputComponent>",
+                    "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: 'green',\n      ...args,\n      control: fc?.(),\n    },\n  }),\n  argTypes: {},\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimations()],\n    }),\n    moduleMetadata({\n      declarations: [],\n      imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule],\n    }),\n  ],\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/component-lib/src/stories/TextInput.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Label',\n    placeholder: 'Placeholder Text',\n  },\n}"
+                }
+            ],
             "projects/component-lib/src/stories/Button.stories.ts": [
                 {
                     "name": "Large",
@@ -868,38 +900,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<Page>",
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: Page,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/angular/configure/story-layout\n    layout: 'fullscreen',\n  },\n  decorators: [\n    moduleMetadata({\n      declarations: [Button, Header],\n      imports: [CommonModule],\n    }),\n  ],\n}"
-                }
-            ],
-            "projects/component-lib/src/stories/TextInput.stories.ts": [
-                {
-                    "name": "mapping",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/component-lib/src/stories/TextInput.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  formControl: () =>\n    new FormControl({ value: 'Marty McFly', disabled: false }, [\n      Validators.required,\n    ])\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/component-lib/src/stories/TextInput.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TextInputComponent>",
-                    "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n      //control: formControl\n      control: mapping['formControl']?.(),\n    },\n  }),\n  /*render: ({ control }: { control: any }) => {\n    //const controlKey = control as keyof typeof mapping;\n    return {\n      props: {\n        control: mapping['formControl']?.(),\n      },\n    };\n  },*/\n  argTypes: {\n    control: {\n      control:{\n        type: 'text',\n      }\n    }\n  },\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimations()],\n    }),\n    moduleMetadata({\n      declarations: [],\n      imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule],\n    }),\n  ]\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/component-lib/src/stories/TextInput.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n    //control: formGroup.get('formControl') as unknown as FormControl,\n    placeholder: \"Placeholder Text\",\n\n  },\n}"
                 }
             ],
             "projects/component-lib/.storybook/preview.ts": [
@@ -1161,7 +1161,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "mapping",
+                "name": "fc",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

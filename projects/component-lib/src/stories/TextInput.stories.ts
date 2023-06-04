@@ -3,6 +3,7 @@ import { TextInputComponent } from '../lib/components/text-input/text-input.comp
 import {
   FormControl,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { moduleMetadata, applicationConfig } from '@storybook/angular';
@@ -11,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 
 const fc = () =>
-  new FormControl('stuff');
+  new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]);
 
 const meta: Meta<TextInputComponent> = {
   title: 'Example/TextInputComponent',
@@ -19,8 +20,8 @@ const meta: Meta<TextInputComponent> = {
   tags: ['autodocs'],
   render: (args: TextInputComponent) => ({
     props: {
-      backgroundColor: null,
       ...args,
+      backgroundColor: 'green',
       control: fc?.(),
     },
   }),
@@ -42,7 +43,7 @@ type Story = StoryObj<TextInputComponent>;
 // More on writing stories with args: https://storybook.js.org/docs/angular/writing-stories/args
 export const Primary: Story = {
   args: {
-    label: 'Some Test Label',
+    label: 'Label',
     placeholder: 'Placeholder Text',
   },
 };
