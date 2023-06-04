@@ -575,6 +575,16 @@
                 "defaultValue": "{\n  render: (args: Page) => ({\n    props: args,\n  }),\n}"
             },
             {
+                "name": "mapping",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/component-lib/src/stories/TextInput.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  formControl: () =>\n    new FormControl({ value: 'Marty McFly', disabled: false }, [\n      Validators.required,\n    ])\n}"
+            },
+            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -612,7 +622,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TextInputComponent>",
-                "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {},\n}"
+                "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n      //control: formControl\n      control: mapping['formControl']?.(),\n    },\n  }),\n  /*render: ({ control }: { control: any }) => {\n    //const controlKey = control as keyof typeof mapping;\n    return {\n      props: {\n        control: mapping['formControl']?.(),\n      },\n    };\n  },*/\n  argTypes: {\n    control: {\n      control:{\n        type: 'text',\n      }\n    }\n  },\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimations()],\n    }),\n    moduleMetadata({\n      declarations: [],\n      imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule],\n    }),\n  ]\n}"
             },
             {
                 "name": "preview",
@@ -642,7 +652,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n    control: new FormControl('value'),\n    placeholder: \"Placeholder Text\",\n\n  },\n}"
+                "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n    //control: formGroup.get('formControl') as unknown as FormControl,\n    placeholder: \"Placeholder Text\",\n\n  },\n}"
             },
             {
                 "name": "Secondary",
@@ -862,6 +872,16 @@
             ],
             "projects/component-lib/src/stories/TextInput.stories.ts": [
                 {
+                    "name": "mapping",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/component-lib/src/stories/TextInput.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  formControl: () =>\n    new FormControl({ value: 'Marty McFly', disabled: false }, [\n      Validators.required,\n    ])\n}"
+                },
+                {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -869,7 +889,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TextInputComponent>",
-                    "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {},\n}"
+                    "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n      //control: formControl\n      control: mapping['formControl']?.(),\n    },\n  }),\n  /*render: ({ control }: { control: any }) => {\n    //const controlKey = control as keyof typeof mapping;\n    return {\n      props: {\n        control: mapping['formControl']?.(),\n      },\n    };\n  },*/\n  argTypes: {\n    control: {\n      control:{\n        type: 'text',\n      }\n    }\n  },\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimations()],\n    }),\n    moduleMetadata({\n      declarations: [],\n      imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule],\n    }),\n  ]\n}"
                 },
                 {
                     "name": "Primary",
@@ -879,7 +899,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n    control: new FormControl('value'),\n    placeholder: \"Placeholder Text\",\n\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    label: 'Some Test Label',\n    //control: formGroup.get('formControl') as unknown as FormControl,\n    placeholder: \"Placeholder Text\",\n\n  },\n}"
                 }
             ],
             "projects/component-lib/.storybook/preview.ts": [
@@ -1132,6 +1152,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/component-lib/src/stories/TextInput.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "mapping",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
