@@ -622,7 +622,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TextInputComponent>",
-                "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: 'green',\n      ...args,\n      control: fc?.(),\n    },\n  }),\n  argTypes: {},\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimations()],\n    }),\n    moduleMetadata({\n      declarations: [],\n      imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule],\n    }),\n  ],\n}"
+                "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      ...args,\n      backgroundColor: 'green',\n      control: fc?.(),\n    },\n  }),\n  argTypes: {},\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimations()],\n    }),\n    moduleMetadata({\n      declarations: [],\n      imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule],\n    }),\n  ],\n}"
             },
             {
                 "name": "preview",
@@ -763,7 +763,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TextInputComponent>",
-                    "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      backgroundColor: 'green',\n      ...args,\n      control: fc?.(),\n    },\n  }),\n  argTypes: {},\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimations()],\n    }),\n    moduleMetadata({\n      declarations: [],\n      imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule],\n    }),\n  ],\n}"
+                    "defaultValue": "{\n  title: 'Example/TextInputComponent',\n  component: TextInputComponent,\n  tags: ['autodocs'],\n  render: (args: TextInputComponent) => ({\n    props: {\n      ...args,\n      backgroundColor: 'green',\n      control: fc?.(),\n    },\n  }),\n  argTypes: {},\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimations()],\n    }),\n    moduleMetadata({\n      declarations: [],\n      imports: [MatInputModule, MatFormFieldModule, ReactiveFormsModule],\n    }),\n  ],\n}"
                 },
                 {
                     "name": "Primary",

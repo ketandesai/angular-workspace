@@ -41,9 +41,10 @@ export default meta;
 type Story = StoryObj<TextInputComponent>;
 
 // More on writing stories with args: https://storybook.js.org/docs/angular/writing-stories/args
-export const Primary: Story = {
+export const Default: Story = {
   args: {
     label: 'Label',
     placeholder: 'Placeholder Text',
   },
 };
+
