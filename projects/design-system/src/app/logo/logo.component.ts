@@ -9,6 +9,4 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./logo.component.css']
 })
 export class LogoComponent {
-  @Input() logoName = 'https://avatars.dicebear.com/api/adventurer-neutral/mail%40ashallendesign.co.uk.svg';
-
 }
