@@ -1,23 +1,20 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TextInputComponent } from 'projects/component-lib/src/lib/components';
+import { RegisterForm } from './register.form';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TextInputComponent],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-
-  registerForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-  });
+  registerForm = new RegisterForm();
 
   sendForm() {
     console.log(this.registerForm.value);
   }
-
 }
