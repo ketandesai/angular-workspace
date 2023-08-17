@@ -8,9 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   standalone: true,
   imports: [CommonModule, RegisterComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  domainName = "www.aprendetypescript.com";
+  domainName = 'www.aprendetypescript.com';
   price = 100;
 }
