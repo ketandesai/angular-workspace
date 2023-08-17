@@ -1,6 +1,15 @@
-<app-logo></app-logo>
-<app-navigation></app-navigation>
-<div class="container">
+<section class="layout">
+  <div class="header">
+    <app-logo></app-logo>
+    <app-navigation></app-navigation>
+  </div>
+
+  <div class="leftSide">Left Aside</div>
+  <div class="body">
     <ng-content></ng-content>
-</div>
-<footer>2022</footer>
+  </div>
+  <div class="rightSide">Right Sidebar</div>
+  <div class="footer">
+    <footer>2023</footer>
+  </div>
+</section>
