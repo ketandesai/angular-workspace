@@ -1,32 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
 //@import '@angular/material/prebuilt-themes/pink-bluegrey.css;
 
-
 //@import url('@angular/material/prebuilt-themes/pink-bluegrey.css');
 
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 
 //$my-palette: mat.$indigo-palette;
 // Include non-theme styles for core.
 @include mat.core();
 
-$my-primary: mat.define-palette(mat.$light-blue-palette ,200, 500, 900);
+$my-primary: mat.define-palette(mat.$light-blue-palette, 200, 500, 900);
 $my-accent: mat.define-palette(mat.$blue-grey-palette, A200, A100, A400);
 
 // The "warn" palette is optional and defaults to red if not specified.
 //$my-warn: mat.define-palette(mat.$red-palette);
 
-$my-theme: mat.define-dark-theme((
- color: (
-   primary: $my-primary,
-   accent: $my-accent,
-   //warn: $my-warn,
- ),
- typography: mat.define-typography-config(),
- density: 0,
-));
+$my-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      //warn: $my-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 
 // Emit theme-dependent styles for common features used across multiple components.
 @include mat.core-theme($my-theme);
 
 @include mat.all-component-themes($my-theme);
+
+html {
+  --red-hue: 0deg;
+  --red-sat: 100%;
+  --red-lit: 50%;
+
+  --red: hsl(var(--red-hue) var(--red-sat) var(--red-lit));
+  --dark-red: hsl(var(--red-hue) var(--red-sat) calc(var(--red-lit) - 20%));
+  --transparent-red: hsl(var(--red-hue) var(--red-sat) var(--red-lit) / 0.5);
+  --soft-red: hsl(
+    var(--red-hue) calc(var(--red-sat) - 30%) calc(var(--red-lit) + 10%)
+  );
+
+  --14px: 0.875rem;
+  --15px: 0.9375rem;
+  --16px: 1rem;
+  --17px: 1.0625rem;
+  --18px: 1.125rem;
+  --19px: 1.1875rem;
+  --20px: 1.25rem;
+  --21px: 1.3125rem;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.3125rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2.652rem;
+  --font-size-4xl: 4rem;
+}

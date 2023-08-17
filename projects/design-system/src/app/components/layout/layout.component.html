@@ -1,10 +1,17 @@
 <section class="layout">
   <div class="header">
+    <h1>App title header</h1>
     <app-logo></app-logo>
     <app-navigation></app-navigation>
   </div>
 
-  <div class="leftSide">Left Aside</div>
+  <div class="leftSide">
+    Left Aside
+    <p style="color: var(--red)">This text is red.</p>
+    <p style="color: var(--dark-red)">This text is darker.</p>
+    <p style="color: var(--transparent-red)">This text is transparent.</p>
+    <p style="color: var(--soft-red)">This text is softer.</p>
+  </div>
   <div class="body">
     <ng-content></ng-content>
   </div>
