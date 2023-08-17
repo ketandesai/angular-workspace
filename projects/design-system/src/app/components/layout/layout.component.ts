@@ -7,9 +7,9 @@ import { NavigationComponent } from '../navigation/navigation.component';
   selector: 'app-container-layout',
   standalone: true,
   imports: [CommonModule, LogoComponent, NavigationComponent],
-  templateUrl: './container-layout.component.html',
-  styleUrls: ['./container-layout.component.css']
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.css']
 })
-export class ContainerLayoutComponent {
+export class LayoutComponent {
 
 }
