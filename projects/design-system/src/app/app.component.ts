@@ -3,11 +3,12 @@ import { AppForm } from './app.form';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, LayoutComponent],
+  imports: [CommonModule, RouterModule, LayoutComponent, NavComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
