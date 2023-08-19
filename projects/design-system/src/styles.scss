@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -9,62 +8,39 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$design-system-primary: mat.define-palette(mat.$light-blue-palette);
-$design-system-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$design-system-warn: mat.define-palette(mat.$red-palette);
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-$design-system-theme: mat.define-light-theme((
-  color: (
-    primary: $design-system-primary,
-    accent: $design-system-accent,
-    warn: $design-system-warn,
-  )
-));
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($design-system-theme);
-
-/* You can add global styles to this file, and also import other style files */
-//@import '@angular/material/prebuilt-themes/pink-bluegrey.css;
-
-//@import url('@angular/material/prebuilt-themes/pink-bluegrey.css');
-
-
-//$my-palette: mat.$indigo-palette;
-// Include non-theme styles for core.
-@include mat.core();
-
-$my-primary: mat.define-palette(mat.$blue-palette, 200, 500, 900);
-$my-accent: mat.define-palette(mat.$blue-grey-palette, A200, A100, A400);
-
-// The "warn" palette is optional and defaults to red if not specified.
-//$my-warn: mat.define-palette(mat.$red-palette);
-
-$my-theme: mat.define-dark-theme(
+// Define a dark theme
+$dark-theme: mat.define-dark-theme(
   (
     color: (
-      primary: $my-primary,
-      accent: $my-accent,
-      //warn: $my-warn,
+      primary: mat.define-palette(mat.$blue-palette),
+      accent: mat.define-palette(mat.$blue-grey-palette),
     ),
+    // Only include `typography` and `density` in the default dark theme.
     typography: mat.define-typography-config(),
     density: 0,
   )
 );
 
-// Emit theme-dependent styles for common features used across multiple components.
-@include mat.core-theme($my-theme);
+// Define a light theme
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$indigo-palette),
+      accent: mat.define-palette(mat.$pink-palette),
+    ),
+  )
+);
 
-@include mat.all-component-themes($my-theme);
+// Apply the dark theme by default
+@include mat.core-theme($dark-theme);
+@include mat.all-component-themes($dark-theme);
+
+// Apply the light theme only when the user prefers light themes.
+@media (prefers-color-scheme: light) {
+  // Use the `-color` mixins to only apply color styles without reapplying the same
+  // typography and density styles.
+  @include mat.core-color($light-theme);
+}
 
 html {
   --red-hue: 0deg;
@@ -97,5 +73,11 @@ html {
   --font-size-4xl: 4rem;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
