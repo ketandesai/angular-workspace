@@ -36,6 +36,35 @@ export const routes: Routes = [
         (m) => m.TableComponent
       ),
   },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./components/dashboard/dashboard.component').then(
+        (m) => m.DashboardComponent
+      ),
+  },
+  {
+    path: 'tree',
+    loadComponent: () =>
+      import('./components/tree/tree.component').then(
+        (m) => m.TreeComponent
+      ),
+  },
+  {
+    path: 'drag-drop',
+    loadComponent: () =>
+      import('./components/drag-drop/drag-drop.component').then(
+        (m) => m.DragDropComponent
+      ),
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./components/contact/contact.component').then(
+        (m) => m.ContactComponent
+      ),
+  },
+
 ];
 
 @NgModule({

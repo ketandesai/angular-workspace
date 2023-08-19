@@ -12,7 +12,10 @@
       <a mat-list-item routerLink="/home" routerLinkActive="active">Home</a>
       <a mat-list-item routerLink="/about" routerLinkActive="active">About</a>
       <a mat-list-item routerLink="/table" routerLinkActive="active">Table</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active">Dashboard</a> 
+      <a mat-list-item routerLink="/tree" routerLinkActive="active">Tree</a>
+      <a mat-list-item routerLink="/drag-drop" routerLinkActive="active">Drag/Drop</a>
+      <a mat-list-item routerLink="/contact" href="#">Contact</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -30,7 +33,6 @@
     </mat-toolbar>
     <!-- Add Content Here -->
     <div>
-      content
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
