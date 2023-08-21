@@ -19,7 +19,9 @@
       <a mat-list-item routerLink="/drag-drop" routerLinkActive="active"
         >Drag/Drop</a
       >
-      <a mat-list-item routerLink="/contact" routerLinkActive="active">Contact</a>
+      <a mat-list-item routerLink="/contact" routerLinkActive="active"
+        >Contact</a
+      >
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -34,6 +36,11 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>design-system</span>
+      <div class="flex-stretch"></div>
+      <mat-icon class="mr-8">brightness_5</mat-icon>
+      <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
+      </mat-slide-toggle>
+      <mat-icon>bedtime</mat-icon>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
