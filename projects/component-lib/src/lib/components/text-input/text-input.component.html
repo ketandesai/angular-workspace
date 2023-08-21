@@ -1,6 +1,6 @@
 <mat-form-field>
   <mat-label>{{ label }}</mat-label>
-  <input type="text" matInput [formControl]="control" [placeholder]="placeholder!"/>
+  <input matInput [formControl]="control" [placeholder]="placeholder!"/>
   <mat-error *ngFor="let error of control?.errors! | errorKeys">
     {{ messages[error] }}
   </mat-error>

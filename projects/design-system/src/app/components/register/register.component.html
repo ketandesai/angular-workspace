@@ -1,6 +1,6 @@
 <form [formGroup]="registerForm" (ngSubmit)="sendForm()">
 
-    <lib-text-input label="Name" [control]="registerForm.name"></lib-text-input>
+    <lib-text-input [label]="'Name'" [placeholder]="'Name'" [control]="registerForm.name"></lib-text-input>
     <lib-text-input label="Email" [control]="registerForm.email"></lib-text-input>
     <button type="submit">Send</button>
   </form>

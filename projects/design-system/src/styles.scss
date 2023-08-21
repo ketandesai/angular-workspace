@@ -17,7 +17,7 @@ $dark-theme: mat.define-dark-theme(
     ),
     // Only include `typography` and `density` in the default dark theme.
     typography: mat.define-typography-config(),
-    density: -3,
+    density: 0,
   )
 );
 
